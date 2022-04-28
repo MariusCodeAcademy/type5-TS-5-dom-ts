@@ -1,4 +1,4 @@
-interface ItemObj {
+export interface ItemObj {
   id: number;
   qty: number;
   title: string;
@@ -11,7 +11,7 @@ interface ItemObj {
     count: number;
   };
 }
-const items = [
+export const items: ItemObj[] = [
   {
     id: 1,
     qty: 15,
