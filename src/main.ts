@@ -78,8 +78,13 @@ function buyDelete(event: Event): void {
   const delBtnEl = event.currentTarget as HTMLButtonElement | null;
   console.log('buy');
   console.log(delBtnEl);
+  if (!delBtnEl) throw new Error('delBtnEl el neradau');
   // addto cart
-  delBtnEl?.parentElement?.remove();
+  // ! patvirtinam kad yra tokia reiksme.
+  const itemId: string = delBtnEl.dataset.itemId!;
+  addItemToCart(Number(itemId));
+  // delBtnEl.parentElement?.remove();
+
   // (<HTMLButtonElement | null>event.currentTarget)?.parentElement?.remove();
   /*
   <li>
@@ -104,14 +109,23 @@ function addItemToCart(itemId: number): void {
     (iObj: ItemObj): boolean => iObj.id === itemId
   );
   console.log('found ===', found);
+  if (!found) return;
+
+  const { id, title, price } = found;
+
   const itemToCart: cartItem = {
-    itemId: found.id,
+    itemId: id,
+    title,
+    price,
+    qty: 1,
   };
+  cart.push(itemToCart);
+  console.log('cart ===', cart);
   // ikelti itemToCart i cart masyva
   // iskonsolinti cart masyva isitikinti kad pavyko
   // is tos prekes mes norim ideti i cart [] {itemId, title, price, qty}
 }
-addItemToCart(12);
+// addItemToCart(12);
 
 // pagalvoti kur iskviesti addItemToCart() kad veiktu su buy mygtuku
 // ko truksta kad veiktu su buy mygtuku
