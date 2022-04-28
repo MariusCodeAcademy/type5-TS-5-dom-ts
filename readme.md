@@ -13,6 +13,10 @@
 
 7. sortByPrice() fn viduje isrikiuoti items masyva ir paduoti ji i makelShopList
 
+8. paspaudus sortByPrice kiekviena karta keiciam rikiavimo tvarka asc | desc
+
+9. Vietoj li elementu sugeneruoti korteles su paveiksleliais [mazdaug tokias](https://prnt.sc/fKmiy264NYT5)
+
 ## tarpine uzduotis
 
 1t. Paspaudus mygtuka 'minus' mazinam counter reiksme.
