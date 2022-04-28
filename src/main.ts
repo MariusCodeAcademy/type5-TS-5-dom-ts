@@ -15,6 +15,7 @@ function makeLiEl(title: string, price: number): HTMLLIElement {
 
   const btnEl = document.createElement('button');
   btnEl.textContent = 'buy';
+  btnEl.addEventListener('click', buyDelete);
   li.append(btnEl);
 
   return li;
@@ -40,6 +41,8 @@ const btnEl = document.getElementById('sort-price') as HTMLButtonElement | null;
 
 btnEl?.addEventListener('click', sortByPrice);
 
+let asc = true;
+
 function sortByPrice(): void {
   console.log('sort');
   // isrikiuoti
@@ -47,9 +50,40 @@ function sortByPrice(): void {
   // console.log('nr ===', nr);
   // const sorted: number[] = nr.sort((a: number, b: number) => b - a);
   // console.log('sorted ===', sorted);
-  const sortedItems: ItemObj[] = items.sort(
-    (a: ItemObj, b: ItemObj) => a.price - b.price
-  );
+
+  // if (asc) {
+  //   const sortedItems: ItemObj[] = items.sort(
+  //     (a: ItemObj, b: ItemObj) => a.price - b.price
+  //   );
+  //   makelShopList(sortedItems);
+  // } else {
+  //   const sortedItems: ItemObj[] = items.sort(
+  //     (a: ItemObj, b: ItemObj) => b.price - a.price
+  //   );
+  //   makelShopList(sortedItems);
+  // }
+
   // paduoti i makelShopList()
+  const sortedItems: ItemObj[] = items.sort((a: ItemObj, b: ItemObj) =>
+    asc ? a.price - b.price : b.price - a.price
+  );
   makelShopList(sortedItems);
+
+  asc = !asc;
+}
+
+// 2. pasaudus mygtuka buy nuperkam preke. Tai reiskia pasalinam ja is saraso.
+function buyDelete(event: Event): void {
+  const delBtnEl = event.currentTarget as HTMLButtonElement | null;
+  console.log('buy');
+  console.log(delBtnEl);
+  delBtnEl?.parentElement?.remove();
+  // (<HTMLButtonElement | null>event.currentTarget)?.parentElement?.remove();
+  /*
+  <li>
+    <strong>Mens Casual </strong>
+    - 22.3
+    <button>buy</button>
+  </li>
+  */
 }
