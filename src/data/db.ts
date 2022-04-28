@@ -11,7 +11,7 @@ export interface ItemObj {
     count: number;
   };
 }
-export const items: ItemObj[] = [
+export const items = [
   {
     id: 1,
     qty: 15,
@@ -140,7 +140,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 10,
-    qty: 15,
+    qty: 1,
     title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
     price: 109,
     description:
@@ -154,7 +154,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 11,
-    qty: 15,
+    qty: 157,
     title: 'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5',
     price: 109,
     description:
@@ -168,7 +168,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 12,
-    qty: 15,
+    qty: 11,
     title: 'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive',
     price: 114,
     description:
@@ -182,7 +182,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 13,
-    qty: 15,
+    qty: 0,
     title: 'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin',
     price: 599,
     description:
@@ -196,7 +196,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 14,
-    qty: 15,
+    qty: 10,
     title:
       'Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ',
     price: 999.99,
@@ -211,7 +211,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 15,
-    qty: 15,
+    qty: 200,
     title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
     price: 56.99,
     description:
@@ -239,7 +239,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 17,
-    qty: 15,
+    qty: 19,
     title: 'Rain Jacket Women Windbreaker Striped Climbing Raincoats',
     price: 39.99,
     description:
@@ -253,7 +253,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 18,
-    qty: 15,
+    qty: 12,
     title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
     price: 9.85,
     description:
@@ -267,7 +267,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 19,
-    qty: 15,
+    qty: 30,
     title: "Opna Women's Short Sleeve Moisture",
     price: 7.95,
     description:
@@ -281,7 +281,7 @@ export const items: ItemObj[] = [
   },
   {
     id: 20,
-    qty: 15,
+    qty: 221,
     title: 'DANVOUY Womens T Shirt Casual Cotton Short',
     price: 12.99,
     description:
