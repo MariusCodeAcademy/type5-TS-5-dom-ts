@@ -115,9 +115,10 @@ function addItemToCart(itemId: number): void {
   );
   console.log('found ===', found);
   if (!found) return;
-
+  // patikrini ar tokia preke jau yra krepselyje,
+  // jei yra tai krepselyje padidinam 1 qty
+  // jei nera idedam nauja preke (dabartinis varijantas)
   const { id, title, price } = found;
-
   const itemToCart: cartItem = {
     itemId: id,
     title,
@@ -128,6 +129,7 @@ function addItemToCart(itemId: number): void {
   console.log('cart ===', cart);
 
   drawCartItems(cart, cartTableBodyEl);
+  calculateCartTotal(cart);
 
   // ikelti itemToCart i cart masyva
   // iskonsolinti cart masyva isitikinti kad pavyko
@@ -135,7 +137,7 @@ function addItemToCart(itemId: number): void {
 }
 // addItemToCart(12);
 
-function drawCartItems(cartArr: cartItem[], dest: HTMLTableSectionElement | null) {
+function drawCartItems(cartArr: cartItem[], dest: HTMLTableSectionElement | null): void {
   if (!dest) throw new Error('table body not found');
 
   console.log('drawing cart');
@@ -156,3 +158,18 @@ function drawCartItems(cartArr: cartItem[], dest: HTMLTableSectionElement | null
   `;
   });
 }
+
+// suskaiciuoti bendra krepselio kaina
+function calculateCartTotal(cartArr: cartItem[]): number {
+  const totalCartSum = cartArr.reduce((total: number, cObj: cartItem) => {
+    // is esamos prekes cObj paimti qty ir padauginti is price ir graznti rezulta
+    const oneItemPriceTotal = cObj.price * cObj.qty;
+    return total + oneItemPriceTotal;
+  }, 0);
+  console.log('totalCartSum ===', totalCartSum);
+  return totalCartSum;
+}
+// atvaizduoti virs krepselio
+// suma atsinaujina kai idedam preke i krepseli
+
+// cart-total-amount el perkleti bendra suma gauta is calculateCartTotal
