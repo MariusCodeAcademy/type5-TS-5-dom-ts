@@ -39,7 +39,24 @@
 
 16. pridedam mygtuka checkuot, kuri paspaudus visos prekes pasalinamos is krepselio ir ekrane su atvaizduojame kortele kiek is viso sumoketi.
 
-## tarpine uzduotis
+## oop versija
 
-1t. Paspaudus mygtuka 'minus' mazinam counter reiksme.
-2t. Neleisti mazinti maziau nulio.
+Pabandyti pasidaryti OOP versija su klasem
+
+1. sukurti Item klase kuris priima argumentu ItemObj tipo elementa ir toki grazina.
+   new Item(obj)
+
+2. susikurti ItemList klase kuri turi
+
+   - ShopItems masyva []
+   - addItemToList(Item) metoda - prideda pagal Item klase sukurta elementa i ShopItems
+   - sortItems() metoda - isrikiuoja ShopItems pagal kaina
+   - renderTable(dest) metoda - sugeneruoja elementu lentele dest elemente.
+
+const list = new ItemList()
+list.addItemToList()
+
+3. Cart klase.
+   - cartItems[] - tuscias [] saugomi cartItem tipo objektai
+   - addToCart(Item) metodas prideda nauja preke i cartItems. Argumentu gauna Item tipo o ideda cartItem tipo
+   - caclTotal() - paskaiciuoja bendra suma is cartItems. nereikalingi jokie argumentai(pasiimam skaiciavimui is this.cartItems)

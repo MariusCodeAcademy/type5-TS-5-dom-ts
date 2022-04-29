@@ -2,7 +2,7 @@
 
 import { ItemObj, items } from './data/db.js';
 
-const cart: cartItem[] = [];
+let cart: cartItem[] = [];
 
 const listEl = document.getElementById('shop-list') as HTMLOListElement | null;
 const cartTableBodyEl = document.getElementById(
@@ -117,6 +117,7 @@ function addItemToCart(itemId: number): void {
   console.log('found ===', found);
 
   if (!found) return;
+
   // patikrini found preke jau yra krepselyje,
   const itemAlredyInCart: cartItem | undefined = cart.find(
     (cObj: cartItem): boolean => cObj.itemId === itemId
@@ -179,9 +180,17 @@ function calculateCartTotal(cartArr: cartItem[]): number {
     return total + oneItemPriceTotal;
   }, 0);
   console.log('totalCartSum ===', totalCartSum);
+  // calc procentai
   return totalCartSum;
 }
 // atvaizduoti virs krepselio
 // suma atsinaujina kai idedam preke i krepseli
 
 // cart-total-amount el perkleti bendra suma gauta is calculateCartTotal
+
+// 15. paskaiciuojam 21% pvm nuo kainos ir atvaizduojam
+
+function caclAndDisplayTax(ammount: number): number {
+  // paskaiciuti procentus nuo ammount 21%
+  // atvaizduoti proc <span id="percent">125eur</span>
+}
