@@ -5,24 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="./js/main.js" defer></script>
   </head>
   <body>
-    <h1>TS</h1>
-    <button id="sort-price">Sort By Price</button>
-    <ol id="shop-list">
-      <li>
-        <strong>Mens Casual </strong>
-        - 22.3
-        <button>buy</button>
-      </li>
-    </ol>
+    <h1>TS shop as much as you have cash</h1>
+    <div class="grid">
+      <div class="left">
+        <button id="sort-price">Sort By Price</button>
+        <ol id="shop-list">
+          <li>
+            <strong>Mens Casual </strong>
+            - 22.3
+            <button>buy</button>
+          </li>
+        </ol>
+      </div>
+      <div class="right">
+        <h2>Your cart</h2>
+        <table class="cart">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Qty</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+            <tr>
+              <td>1</td>
+              <td>Baseball bat</td>
+              <td>50.58</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Kite</td>
+              <td>500.58</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    <article>
+    <!-- <article>
       <h2>Tarpine uzduotele</h2>
       <p id="counter">21</p>
       <button id="minus">Minus</button>
       <small>Paspaudus mygtuka mazinam counter reiksme</small>
-    </article>
+    </article> -->
   </body>
 </html>

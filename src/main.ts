@@ -2,6 +2,8 @@
 
 import { ItemObj, items } from './data/db.js';
 
+const cart: cartItem[] = [];
+
 const listEl = document.getElementById('shop-list') as HTMLOListElement | null;
 
 //  <li><strong>Title</strong> - price <button>buy</button></li>
@@ -101,7 +103,7 @@ interface cartItem {
   price: number;
   qty: number;
 }
-const cart: cartItem[] = [];
+
 // 2.1. Susikuriam masyva cart. jis tures objektus {title: , price: , qty: 1}. paspaudus buy, ikeliam ta preke i cart masyva.
 function addItemToCart(itemId: number): void {
   // surasti tarp items prekiu preke, kurios id === itemId
@@ -129,26 +131,26 @@ function addItemToCart(itemId: number): void {
 
 // pagalvoti kur iskviesti addItemToCart() kad veiktu su buy mygtuku
 // ko truksta kad veiktu su buy mygtuku
-[1, 2, 3].includes(1);
-const psiaudoCart = [
-  {
-    id: 1,
-    title: 'yes',
-    qty: 1,
-  },
-  {
-    id: 2,
-    title: 'maybe',
-    qty: 1,
-  },
-  {
-    id: 3,
-    title: 'no',
-    qty: 1,
-  },
-];
-psiaudoCart.push({
-  id: 1,
-  title: 'yes',
-  qty: 1,
-});
+// [1, 2, 3].includes(1);
+// const psiaudoCart = [
+//   {
+//     id: 1,
+//     title: 'yes',
+//     qty: 1,
+//   },
+//   {
+//     id: 2,
+//     title: 'maybe',
+//     qty: 1,
+//   },
+//   {
+//     id: 3,
+//     title: 'no',
+//     qty: 1,
+//   },
+// ];
+// psiaudoCart.push({
+//   id: 1,
+//   title: 'yes',
+//   qty: 1,
+// });
