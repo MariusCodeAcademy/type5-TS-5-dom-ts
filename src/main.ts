@@ -115,20 +115,26 @@ function addItemToCart(itemId: number): void {
     (iObj: ItemObj): boolean => iObj.id === itemId
   );
   console.log('found ===', found);
-  if (!found) return;
-  // patikrini ar tokia preke jau yra krepselyje,
-  // jei yra tai krepselyje padidinam 1 qty
-  // jei nera idedam nauja preke (dabartinis varijantas)
-  const { id, title, price } = found;
-  const itemToCart: cartItem = {
-    itemId: id,
-    title,
-    price,
-    qty: 1,
-  };
-  cart.push(itemToCart);
-  console.log('cart ===', cart);
 
+  if (!found) return;
+  // patikrini found preke jau yra krepselyje,
+  const itemAlredyInCart: cartItem | undefined = cart.find(
+    (cObj: cartItem): boolean => cObj.itemId === itemId
+  );
+  if (itemAlredyInCart) {
+    itemAlredyInCart.qty++;
+  } else {
+    const { id, title, price } = found;
+    const itemToCart: cartItem = {
+      itemId: id,
+      title,
+      price,
+      qty: 1,
+    };
+    cart.push(itemToCart);
+  }
+
+  console.log('cart ===', cart);
   drawCartItems(cart, cartTableBodyEl);
   drawTotalPrice();
   // ikelti itemToCart i cart masyva
