@@ -181,6 +181,7 @@ function calculateCartTotal(cartArr: cartItem[]): number {
   }, 0);
   console.log('totalCartSum ===', totalCartSum);
   // calc procentai
+  caclAndDisplayTax(totalCartSum);
   return totalCartSum;
 }
 // atvaizduoti virs krepselio
@@ -192,5 +193,10 @@ function calculateCartTotal(cartArr: cartItem[]): number {
 
 function caclAndDisplayTax(ammount: number): number {
   // paskaiciuti procentus nuo ammount 21%
+  const value: number = ammount * 0.21;
   // atvaizduoti proc <span id="percent">125eur</span>
+  const destEl = document.getElementById('percent') as HTMLSpanElement | null;
+  if (!destEl) throw new Error('percent el not found');
+  destEl.textContent = `${value}eur`;
+  return value;
 }
