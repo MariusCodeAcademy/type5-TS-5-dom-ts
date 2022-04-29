@@ -8,6 +8,7 @@ const listEl = document.getElementById('shop-list') as HTMLOListElement | null;
 const cartTableBodyEl = document.getElementById(
   'cart-body'
 ) as HTMLTableSectionElement | null;
+const cartTotalEl = document.getElementById('cart-total-amount') as HTMLElement | null;
 
 //  <li><strong>Title</strong> - price <button>buy</button></li>
 function makeLiEl(id: number, title: string, price: number): HTMLLIElement {
@@ -129,13 +130,18 @@ function addItemToCart(itemId: number): void {
   console.log('cart ===', cart);
 
   drawCartItems(cart, cartTableBodyEl);
-  calculateCartTotal(cart);
-
+  drawTotalPrice();
   // ikelti itemToCart i cart masyva
   // iskonsolinti cart masyva isitikinti kad pavyko
   // is tos prekes mes norim ideti i cart [] {itemId, title, price, qty}
 }
 // addItemToCart(12);
+
+function drawTotalPrice() {
+  const totalCartPrice: number = calculateCartTotal(cart);
+  if (!cartTotalEl) return;
+  cartTotalEl.textContent = `${totalCartPrice}eur`;
+}
 
 function drawCartItems(cartArr: cartItem[], dest: HTMLTableSectionElement | null): void {
   if (!dest) throw new Error('table body not found');
