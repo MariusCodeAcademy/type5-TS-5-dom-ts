@@ -5,6 +5,9 @@ import { ItemObj, items } from './data/db.js';
 const cart: cartItem[] = [];
 
 const listEl = document.getElementById('shop-list') as HTMLOListElement | null;
+const cartTableBodyEl = document.getElementById(
+  'cart-body'
+) as HTMLTableSectionElement | null;
 
 //  <li><strong>Title</strong> - price <button>buy</button></li>
 function makeLiEl(id: number, title: string, price: number): HTMLLIElement {
@@ -123,34 +126,33 @@ function addItemToCart(itemId: number): void {
   };
   cart.push(itemToCart);
   console.log('cart ===', cart);
+
+  drawCartItems(cart, cartTableBodyEl);
+
   // ikelti itemToCart i cart masyva
   // iskonsolinti cart masyva isitikinti kad pavyko
   // is tos prekes mes norim ideti i cart [] {itemId, title, price, qty}
 }
 // addItemToCart(12);
 
-// pagalvoti kur iskviesti addItemToCart() kad veiktu su buy mygtuku
-// ko truksta kad veiktu su buy mygtuku
-// [1, 2, 3].includes(1);
-// const psiaudoCart = [
-//   {
-//     id: 1,
-//     title: 'yes',
-//     qty: 1,
-//   },
-//   {
-//     id: 2,
-//     title: 'maybe',
-//     qty: 1,
-//   },
-//   {
-//     id: 3,
-//     title: 'no',
-//     qty: 1,
-//   },
-// ];
-// psiaudoCart.push({
-//   id: 1,
-//   title: 'yes',
-//   qty: 1,
-// });
+function drawCartItems(cartArr: cartItem[], dest: HTMLTableSectionElement | null) {
+  if (!dest) throw new Error('table body not found');
+
+  console.log('drawing cart');
+
+  // isvalom tabble body pries generuojant eilutes
+  dest.innerHTML = '';
+
+  cartArr.forEach((cObj: cartItem, idx: number): void => {
+    // sukurti eilute
+    // ideti ta eilute i cart table body
+    const trEl: HTMLTableRowElement = dest.insertRow();
+    // surasyti td reiksmes
+    trEl.innerHTML = `
+    <td>${idx + 1}</td>
+    <td>${cObj.title}</td>
+    <td>${cObj.price}</td>
+    <td>${cObj.qty}</td>
+  `;
+  });
+}
